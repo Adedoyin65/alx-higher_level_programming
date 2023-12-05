@@ -2,7 +2,9 @@
 
 def print_matrix_integer(matrix=[[]]):
     k = 0
-    for i in matrix:
-        for a in matrix[k]:
-            print(a, end="")
-            k += 1
+    j = 0
+    while k < 3:
+        for i in matrix[k][j]:
+            print("{}".format(i), end=" ")
+            j += 1
+        k += 1
