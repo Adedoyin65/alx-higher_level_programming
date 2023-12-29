@@ -3,4 +3,4 @@
 class Square:
     """Empty class representing a square."""
     pass
-"""The pass statement create a simple class with no function."""
+    """The pass statement create a simple class with no function."""
