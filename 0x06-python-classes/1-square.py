@@ -9,7 +9,9 @@ class Square:
         __init__ is the initialization method
 
         Args:
-            size(int):The size of the square
+            size(int): The size of the square
+        Note:
+            No type or value verification is performed
         """
         self.__size = size
 
