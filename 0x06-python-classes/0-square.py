@@ -3,3 +3,6 @@
 class Square:
     """Empty class representing a square."""
     pass
+def dan():
+    """This is an empty function"""
+    pass
