@@ -8,7 +8,7 @@ class Square:
         """
         A method called __init__ with args; self and size
         """
-        if not type(size) is not int:
+        if type(size) is not int:
             raise TypeError("size must be an integer")
         elif not size >= 0:
             raise ValueError("size must be >= 0")
