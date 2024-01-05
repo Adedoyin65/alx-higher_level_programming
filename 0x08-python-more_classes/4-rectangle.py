@@ -53,5 +53,6 @@ class Rectangle:
             else:
                 dan += "#" * self.__width + "\n"
         return dan.rstrip()
+
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.__height})"
