@@ -52,4 +52,4 @@ class Rectangle:
                 return ""
             else:
                 dan += "#" * self.__width + "\n"
-        return dan
+        return dan.rstrip()
