@@ -5,19 +5,8 @@
 class Rectangle:
     """A class that defines a rectangle"""
     def __init__(self, width=0, height=0):
-        if not isinstance(height, int):
-            raise TypeError("height must be an integer")
-        elif not height > 0:
-            raise ValueError("height must be >= 0")
-        else:
-            self.__height = height
-
-        if not isinstance(width, int):
-            raise TypeError("width must be an integer")
-        elif not width > 0:
-            raise TypeError("width must be >= 0")
-        else:
-            self.__width = width
+        self.__height = height
+        self.__width = width
 
     @property
     def height(self):
@@ -25,7 +14,12 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        self.__height = value
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        elif not value > 0:
+            raise ValueError("height must be >= 0")
+        else:
+            self.__height = value
 
     @property
     def width(self):
@@ -33,4 +27,9 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        self.__width = value
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        elif not value > 0:
+            raise ValueError("width must be >= 0")
+        else:
+            self.__width = value
