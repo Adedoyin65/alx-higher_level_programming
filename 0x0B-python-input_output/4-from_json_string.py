@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""A module that defines a function that returns a python object from a json format"""
+"""A module that defines a function that returns a
+python object from a json format
+"""
 import json
 
 
