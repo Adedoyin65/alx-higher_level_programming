@@ -1,0 +1,11 @@
+Add_integer test file.
+Using the add_integer function we will test the sum of two numbers.
+   >>> add_integer = __import__('0-add_integer').add_integer
+   >>> add_integer(1, 2)
+   3
+   >>> add_integer(2, 2.5)
+   4
+   >>> add_integer(1.5)
+   99
+   >>> add_integer(2)
+   100
