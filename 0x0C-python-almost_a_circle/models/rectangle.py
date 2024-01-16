@@ -68,3 +68,7 @@ class Rectangle(Base):
         """This method displays a diagram representation of the instance"""
         for i in range(self.__height):
             print("#" * self.__width)
+
+    def __str__(self):
+        """The str method"""
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
