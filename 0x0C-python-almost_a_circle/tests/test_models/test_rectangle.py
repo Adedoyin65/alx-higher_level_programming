@@ -4,7 +4,7 @@ import unittest
 from models.rectangle import Rectangle
 
 
-class TestRec(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
     """A class(TestRec) that inherits from TestCase"""
     def test_init(self):
         """This method is to test the init method of Rectangle class"""
