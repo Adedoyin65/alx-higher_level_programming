@@ -5,10 +5,10 @@ from models.base import Base
 
 class TestBase(unittest.TestCase):
     """A class called TestBase that inherit from TestCase"""
-    def test_uuid(self):
-        x = Base()
-        y = Base()
+    def test_init(self):
+        x = Base(4)
+        y = Base(4)
         self.assertIsInstance(x, Base)
-        self.assertNotEqual(x.id, y.id)
+        self.assertEqual(x.id, y.id)
 if __name__ == '__main__':
     unittest.main()
