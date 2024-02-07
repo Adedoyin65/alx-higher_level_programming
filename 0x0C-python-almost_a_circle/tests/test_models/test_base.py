@@ -3,6 +3,7 @@
 import unittest
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
     """A class called TestBase that inherit from TestCase"""
     def test_init(self):
@@ -11,5 +12,7 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(x, Base)
         self.assertEqual(x.id, 4)
         self.assertEqual(y.id, 1)
+
+
 if __name__ == '__main__':
     unittest.main()

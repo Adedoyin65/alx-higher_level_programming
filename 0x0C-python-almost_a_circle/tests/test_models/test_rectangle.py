@@ -4,7 +4,6 @@ import unittest
 from models.rectangle import Rectangle
 
 
-
 class TestRec(unittest.TestCase):
     """A class(TestRec) that inherits from TestCase"""
     def test_init(self):
@@ -41,6 +40,7 @@ class TestRec(unittest.TestCase):
     def test_area(self):
         roo = Rectangle(3, 4, 5, 6)
         self.assertEqual(roo.area(), 12)
+
 
 if __name__ == '__main__':
     unittest.main()
