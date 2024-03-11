@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const { argv } = require('node:process');
 let count = -1;
-argv.forEach((val, index) => {
+argv.forEach((index) => {
   count++;
 });
 if (count === 1) {
