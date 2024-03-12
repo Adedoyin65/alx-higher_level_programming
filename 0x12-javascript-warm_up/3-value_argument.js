@@ -1,11 +1,8 @@
 #!/usr/bin/node
-const { argv } = require('node:process');
-let count = -1;
-argv.forEach((index) => {
-  count++;
-});
-if (count === 1) {
-  console.log('No argument');
-} else if (count > 1) {
-  console.log(argv[count]);
+const [dan] = process.argv.slice(2);
+if (dan === undefined) {
+	console.log('No argument');
+}
+else {
+	console.log(dan);
 }
