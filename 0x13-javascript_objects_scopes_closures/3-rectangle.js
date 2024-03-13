@@ -1,6 +1,6 @@
 #!/usr/bin/node
 class Rectangle {
-  constructor(w, h) {
+  constructor (w, h) {
     // Check if w and h are positive integers greater than 0
     if (Number.isInteger(w) && Number.isInteger(h) && w > 0 && h > 0) {
       this.width = w;
@@ -11,7 +11,7 @@ class Rectangle {
     }
   }
 
-  print() {
+  print () {
     if (this.width && this.height) {
       // Loop through each row
       for (let row = 0; row < this.height; row++) {
@@ -19,7 +19,7 @@ class Rectangle {
         console.log('X'.repeat(this.width));
       }
     } else {
-      console.log("Rectangle dimensions are not set.");
+      console.log('Rectangle dimensions are not set.');
     }
   }
 }
