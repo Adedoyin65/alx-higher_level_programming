@@ -1,25 +1,25 @@
 #!/usr/bin/node
 class Rectangle {
   constructor(w, h) {
-    if (w <= 0 || h <= 0 || !Number.isInteger(w) || !Number.isInteger(h)) {
-      return {}; // Empty object
+    // Check if w and h are positive integers greater than 0
+    if (Number.isInteger(w) && Number.isInteger(h) && w > 0 && h > 0) {
+      this.width = w;
+      this.height = h;
+    } else {
+      // If the conditions are not met, create an "empty" object
+      // This is effectively done by not setting the width and height properties
     }
-    this.width = w;
-    this.height = h;
   }
 
   print() {
-    if (!this.width || !this.height) {
-      console.log("Empty rectangle");
-      return;
-    }
-
-    for (let i = 0; i < this.height; i++) {
-      let row = '';
-      for (let j = 0; j < this.width; j++) {
-        row += 'X ';
+    if (this.width && this.height) {
+      // Loop through each row
+      for (let row = 0; row < this.height; row++) {
+        // Repeat the X character width times and print it
+        console.log('X'.repeat(this.width));
       }
-      console.log(row);
+    } else {
+      console.log("Rectangle dimensions are not set.");
     }
   }
 }
