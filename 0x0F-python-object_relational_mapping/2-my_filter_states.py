@@ -3,9 +3,16 @@
 import MySQLdb
 import sys
 
+
 def search_states(username, password, database_name, state_name):
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database_name)
+    db = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=database_name
+            )
 
     # Create a cursor object using cursor() method
     cursor = db.cursor()
@@ -31,6 +38,7 @@ def search_states(username, password, database_name, state_name):
     # Close the cursor and database connection
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     # Check if all 4 arguments are provided
