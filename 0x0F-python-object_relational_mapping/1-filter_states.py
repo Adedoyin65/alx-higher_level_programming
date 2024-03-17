@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A module which defines a script for listing states that begins with N"""
+"""A module which defines a script that list states that begins with N"""
 if __name__ == "__main__":
     import MySQLdb
     import sys
