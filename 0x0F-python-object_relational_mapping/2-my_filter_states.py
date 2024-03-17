@@ -1,30 +1,44 @@
 #!/usr/bin/python3
-"""A module which defines a script that takes in an argument
-   and displays all values in the states table of
-   hbtn_0e_0_usa where name matches the argument."""
-if __name__ == "__main__":
-    import MySQLdb
-    import sys
-    if len(sys.argv) != 5:
-        print("Use:script.py <username> <password> <database_name> <arg1>")
-        sys.exit(1)
-    username, password, database_name, state_name = sys.argv[1:]
-    dan = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=username,
-            passwd=password,
-            database=database_name
-            )
-    m = dan.cursor()
-    query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
+import MySQLdb
+import sys
+
+def search_states(username, password, database_name, state_name):
+    # Connect to MySQL server
+    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database_name)
+
+    # Create a cursor object using cursor() method
+    cursor = db.cursor()
+
+    # SQL query with user input using format method
+    sql_query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
     state_name_param = '%' + state_name + '%'
+
     try:
-        m.execute(query, (state_name_param,))
-        res = m.fetchall()
-        for row in res:
+        # Execute the SQL command with parameterized query
+        cursor.execute(sql_query, (state_name_param,))
+
+        # Fetch all the rows in a list of tuples
+        results = cursor.fetchall()
+
+        # Print the results
+        for row in results:
             print(row)
-    except MySQLdb.Error as e:
+
+    except Exception as e:
         print("Error: Unable to fetch data -", e)
-    m.close()
-    dan.close()
+
+    # Close the cursor and database connection
+    cursor.close()
+    db.close()
+
+if __name__ == "__main__":
+    # Check if all 4 arguments are provided
+    if len(sys.argv) != 5:
+        print("Use: script.py <username> <password> <database_name> <state>")
+        sys.exit(1)
+
+    # Get MySQL credentials and state name from command-line arguments
+    username, password, database_name, state_name = sys.argv[1:]
+
+    # Call the function to search for states
+    search_states(username, password, database_name, state_name)
