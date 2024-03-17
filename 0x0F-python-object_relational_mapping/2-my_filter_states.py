@@ -8,7 +8,7 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Use:script.py <username> <password> <database_name> <arg1>")
         sys.exit(1)
-    username, password, database_name, arg1 = sys.argv[1:]
+    username, password, database_name, state_name_searched = sys.argv[1:]
     dan = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -18,7 +18,7 @@ if __name__ == "__main__":
             )
     m = dan.cursor()
     query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
-    arg_1 = '%' + arg1
+    arg_1 = '%' + state_name_searched
     try:
         m.execute(query, (arg_1,))
         res = m.fetchall()
