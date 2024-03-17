@@ -18,8 +18,9 @@ if __name__ == "__main__":
             )
     m = dan.cursor()
     query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
+    arg_1 = '%' + arg1
     try:
-        m.execute(query, (arg1,))
+        m.execute(query, (arg_1,))
         res = m.fetchall()
         for row in res:
             print(row)
