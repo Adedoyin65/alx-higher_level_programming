@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""A module which defines a script for listing states"""
 if __name__ == "__main__":
     import MySQLdb
     dan = MySQLdb.connect(
