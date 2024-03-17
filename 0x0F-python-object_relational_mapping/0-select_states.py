@@ -2,12 +2,17 @@
 """A module which defines a script for listing states"""
 if __name__ == "__main__":
     import MySQLdb
+    import sys
+    if len(sys.argv) != 4:
+        print("Use: python script.py <username> <password> <database_name>")
+        sys.exit(1)
+    username, password, database_name = sys.argv[1:]
     dan = MySQLdb.connect(
             host="localhost",
             port=3306,
-            user="Eden",
-            passwd="ogunyemi65",
-            database="hbtn_0e_0_usa"
+            user=username,
+            passwd=password,
+            database=database_name
             )
     mydan = dan.cursor()
     try:
