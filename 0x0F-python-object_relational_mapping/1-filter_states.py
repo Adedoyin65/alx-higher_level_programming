@@ -14,13 +14,13 @@ if __name__ == "__main__":
             passwd=password,
             database=database_name
             )
-    mydan = dan.cursor()
+    m = dan.cursor()
     try:
-        mydan.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-        res = mydan.fetchall()
+        m.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+        res = m.fetchall()
         for row in res:
             print(row)
     except MySQLdb.Error as e:
         print("Error: Unable to fetch data -", e)
-    mydan.close()
+    m.close()
     dan.close()
