@@ -16,7 +16,7 @@ if __name__ == "__main__":
             )
     mydan = dan.cursor()
     try:
-        mydan.execute("SELECT * FROM states WHERE name LIKE 'N%'")
+        mydan.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
         res = mydan.fetchall()
         for row in res:
             print(row)
