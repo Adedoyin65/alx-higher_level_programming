@@ -10,7 +10,12 @@ if __name__ == "__main__":
             database="hbtn_0e_0_usa"
             )
     mydan = dan.cursor()
-    mydan.execute("SELECT * FROM states ORDER BY id ASC")
-    res = mydan.fetchall()
-    for i in res:
-        print(i)
+    try:
+        mydan.execute("SELECT * FROM states ORDER BY id ASC")
+        res = mydan.fetchall()
+        for row in res:
+            print(row)
+    except MySQLdb.Error as e:
+        print("Error: Unable to fetch data -", e)
+    mydan.close()
+    dan.close()
