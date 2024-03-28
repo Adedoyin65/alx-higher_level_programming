@@ -12,6 +12,6 @@ curl -s -o "$RESPONSE_FILE" "$URL"
 # Get the size of the response body in bytes
 SIZE=$(wc -c < "$RESPONSE_FILE")
 # Display the size of the response body
-echo "Size of the response body: $SIZE bytes"
+echo "$SIZE"
 # Clean up the temporary file
 rm "$RESPONSE_FILE"
