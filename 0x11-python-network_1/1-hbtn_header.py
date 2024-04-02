@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """A python script that takes in a URL, sends a request to the URL and displays the value of the X-Request-Id"""
-import urllib
+import urllib.request
 import sys
 
 # Get the URL from command line arguments
 url = sys.argv[1]
 
 # Send request and read the response headers
-response = urllib.urlopen(url)
+response = urllib.request.urlopen(url)
 headers = response.info()
 
 # Get the value of the X-Request-Id header if it exists
