@@ -5,22 +5,25 @@
 class Node:
     """
     A class that defines a node of a singly linked list.
-    
+
     Attributes:
         __data (int): Private attribute to store the data of the node.
-        __next_node (Node or None): Private attribute to store the reference to the next node.
+        __next_node (Node or None): Private attribute to
+        store the reference to the next node.
     """
 
     def __init__(self, data, next_node=None):
         """
         Initializes a Node object with specified data and next node.
-        
+
         Args:
             data (int): The data to be stored in the node.
-            next_node (Node or None): Optional. The reference to the next node. Defaults to None.
-        
+            next_node (Node or None): Optional.
+            The reference to the next node. Defaults to None.
+
         Raises:
-            TypeError: If data is not an integer or if next_node is not a Node object or None.
+            TypeError: If data is not an integer or if
+            next_node is not a Node object or None.
         """
         self.data = data
         self.next_node = next_node
@@ -29,7 +32,7 @@ class Node:
     def data(self):
         """
         Getter method for retrieving the data of the node.
-        
+
         Returns:
             int: The data of the node.
         """
@@ -39,10 +42,10 @@ class Node:
     def data(self, value):
         """
         Setter method for setting the data of the node.
-        
+
         Args:
             value (int): The data to set.
-        
+
         Raises:
             TypeError: If value is not an integer.
         """
@@ -55,7 +58,7 @@ class Node:
     def next_node(self):
         """
         Getter method for retrieving the reference to the next node.
-        
+
         Returns:
             Node or None: The reference to the next node.
         """
@@ -65,10 +68,10 @@ class Node:
     def next_node(self, value):
         """
         Setter method for setting the reference to the next node.
-        
+
         Args:
             value (Node or None): The reference to the next node.
-        
+
         Raises:
             TypeError: If value is not a Node object or None.
         """
@@ -91,8 +94,9 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """
-        Inserts a new Node into the correct sorted position in the list (increasing order).
-        
+        Inserts a new Node into the correct sorted
+        position in the list (increasing order).
+
         Args:
             value (int): The value to be inserted into the list.
         """
@@ -102,7 +106,8 @@ class SinglyLinkedList:
             self.head = new_node
         else:
             current = self.head
-            while current.next_node is not None and current.next_node.data < value:
+            a = current.next_node.data
+            while current.next_node is not None and a < value:
                 current = current.next_node
             new_node.next_node = current.next_node
             current.next_node = new_node
@@ -110,7 +115,7 @@ class SinglyLinkedList:
     def __str__(self):
         """
         Returns a string representation of the singly linked list.
-        
+
         Returns:
             str: String representation of the singly linked list.
         """
