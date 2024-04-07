@@ -100,16 +100,16 @@ class SinglyLinkedList:
         Args:
             value (int): The value to be inserted into the list.
         """
-        new_node = Node(value)
+        a = Node(value)
         if self.head is None or self.head.data >= value:
-            new_node.next_node = self.head
-            self.head = new_node
+            a.next_node = self.head
+            self.head = a
         else:
             current = self.head
-            while current.next_node is not None and current.next_node.data < value:
+            while current.a is not None and current.next_node.data < value:
                 current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
+            a.next_node = current.next_node
+            current.next_node = a
 
     def __str__(self):
         """
