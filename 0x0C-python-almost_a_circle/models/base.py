@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module that defines a class called Base"""
 import json
+import csv
 import os
 
 
@@ -64,6 +65,40 @@ class Base:
             json_string = file.read()
 
         list_dictionaries = cls.from_json_string(json_string)
+        list_instances = [cls.create(**d) for d in list_dictionaries]
+
+        return list_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes the CSV string representation of list_objs to a file"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as file:
+            writer = csv.writer(file)
+            if cls.__name__ == "Rectangle":
+                writer.writerow(["id", "width", "height", "x", "y"])
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+            elif cls.__name__ == "Square":
+                writer.writerow(["id", "size", "x", "y"])
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Returns a list of instances from a CSV file"""
+        filename = cls.__name__ + ".csv"
+        if not os.path.exists(filename):
+            return []
+
+        with open(filename, 'r', newline='') as file:
+            reader = csv.DictReader(file)
+            list_dictionaries = []
+            for row in reader:
+                for key, value in row.items():
+                    row[key] = int(value)
+                list_dictionaries.append(row)
+
         list_instances = [cls.create(**d) for d in list_dictionaries]
 
         return list_instances
