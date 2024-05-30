@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module that defines a class called Base"""
 import json
+import os
 
 
 class Base:
